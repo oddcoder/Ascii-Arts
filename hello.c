@@ -4,6 +4,9 @@
 int main()
 {
 	whimsy.init();
-	printnarts("  ",2,&whimsy);
+	char x[100];
+	gets(x);
+	whimsy.print(x);
+	whimsy.exit();
 	return 0;
 }
