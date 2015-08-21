@@ -1,17 +1,22 @@
+uninstall:
+	@echo Uninstalling library; 	\
+	rm /usr/lib/libaarts.so -f; 	\
+	rm /usr/include/core.h /usr/include/whimsy.h
 install: lib
-	@cp include/*.h /usr/include/;\
+	echo Installing library;	\
+	@cp include/*.h /usr/include/;	\
 	cp libaarts.so /usr/lib/
 lib:
-	@cd fonts;		\
-	make sharedlib;		\
+	@cd fonts;			\
+	make sharedlib;			\
 	mv ascii-arts.so ../libaarts.so
 	
 clean:
-	@rm *.so -f;		\
-	cd fonts;		\
-	rm *.o -f;		\
-	cd ../demo;		\
+	@rm *.so -f;			\
+	cd fonts;			\
+	rm *.o -f;			\
+	cd ../demo;			\
 	rm *-d -f;
 demos:
-	@cd demo;		\
+	@cd demo;			\
 	make whimsy
