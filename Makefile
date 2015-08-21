@@ -1,10 +1,10 @@
 install: lib
-	@mv include/* /usr/include;\
-	mv ascii-arts.so /usr/lib
+	@cp include/*.h /usr/include/;\
+	cp libaarts.so /usr/lib/
 lib:
 	@cd fonts;		\
 	make sharedlib;		\
-	mv ascii-arts.so ../
+	mv ascii-arts.so ../libaarts.so
 	
 clean:
 	@rm *.so -f;		\
