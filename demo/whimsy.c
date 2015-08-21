@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "include/whimsy.h"
+#include <whimsy.h>
 int main()
 {
 	whimsy.init();

@@ -1,8 +1,5 @@
 #ifndef _ascii_arts_core_
 #define _ascii_arts_core_
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 /*
 r rows
 c columns
