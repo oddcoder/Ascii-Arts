@@ -1,9 +1,6 @@
 #ifndef _whimsy_font_
 #define _whimsy_font_
 #include <core.h>
-#include <ctype.h>
-#include <stdlib.h>
-#include <string.h>
 int whimsy_allowed(int c);
 int whimsy_index(int c);
 int whimsy_init(void);

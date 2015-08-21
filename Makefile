@@ -1,6 +1,6 @@
 lib:
 	@cd fonts;		\
-	gcc -shared -o asci-arts.so
+	make sharedlib
 	
 demos:
 	@cd demo;		\
