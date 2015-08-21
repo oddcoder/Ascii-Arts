@@ -1,11 +1,9 @@
-#include <stdio.h>
 #include <whimsy.h>
-int main()
-{
+int main(){
+	printf("enter some text\n");
+	char s[100];
+	gets(s);	
 	whimsy.init();
-	char x[100];
-	gets(x);
-	whimsy.print(x);
+	whimsy.print(s);
 	whimsy.exit();
-	return 0;
 }

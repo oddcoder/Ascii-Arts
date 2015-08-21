@@ -1,0 +1,30 @@
+
+	Applying Patches 
+	----------------
+
+What is a patch?
+---
+ A patch is a small text document containing a delta of changes between two
+different versions of a source tree. Patches are created with the `diff'
+program.
+To correctly apply a patch you need to know what base it was generated from
+and what new version the patch will change the source tree into. These
+should both be present in the patch file metadata or be possible to deduce
+from the filename.
+
+
+How do I apply or revert a patch?
+---
+Patches are applied using git version control system. Before applying a patch
+patch must be checked so that you know what should the patch do.
+
+git apply --stat mypatch.patch
+
+This command does not apply any patch at all. It just gives you a chance to
+check what does the patch do. After you have checked that everything is fine
+it is time to apply patch
+
+git apply mypatch.patch
+
+note that applying patch does NOT commit the patch to the master branch 
+

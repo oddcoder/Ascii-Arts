@@ -1,2 +1,4 @@
+clean:
+	@rm *.d -f
 whimsy:
-	gcc whimsy.c -o whimsy -std=c99 -I ../include/
+	gcc whimsy.c -o whimsy.d -std=c99 -lascii-arts

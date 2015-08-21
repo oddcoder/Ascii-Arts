@@ -3,7 +3,7 @@
 #define FNAME_MAX 100
 int main()
 {
-	fputs("Enter Font name (less than 100 character)");
+	puts("Enter Font name (less than 100 character)");
 	char fontname[110];
 	scanf("%s",fontname);
 	FILE *font_h;
@@ -12,11 +12,11 @@ int main()
 	fontname[strlen(fontname)-2]=0;
 	font_c = fopen(strcat(fontname,".c"),"w+");
 	fontname[strlen(fontname)-2]=0;
-	fprintf(font_h,	"#ifndef _%s_font_",fontname);
-	fprintf(font_h,	"#define _%s_font_",fontname);
+	fprintf(font_h,	"#ifndef _%s_font_\n",fontname);
+	fprintf(font_h,	"#define _%s_font_\n",fontname);
 	fputs(		"#include <core.h>\n",font_h);
-	fputs(		"#include <ctype.h>#\n",font_h);
-	fputs(		"include <stdlib.h>\n",font_h);
+	fputs(		"#include <ctype.h>\n",font_h);
+	fputs(		"#include <stdlib.h>\n",font_h);
 	fputs(		"#include <string.h>\n",font_h);
 	fprintf(font_h,	"int %s_allowed(int c);\n",fontname);
 	fprintf(font_h,	"int %s_index (int c);\n",fontname);
@@ -26,7 +26,7 @@ int main()
 	fprintf(font_h,	"struct font %s = {\n",fontname);
 	fprintf(font_h,	"\t.allowed = %s_allowed,\n",fontname);
 	fprintf(font_h,	"\t.index = %s_index,\n",fontname);
-	fprintf(font_h,	"\t.init = %s_init,\n",fontnaem);
+	fprintf(font_h,	"\t.init = %s_init,\n",fontname);
 	fprintf(font_h,	"\t.exit = %s_exit,\n",fontname);
 	fprintf(font_h,	"\t.print = %s_print\n};\n",fontname);
 	fputs(		"#endif",font_h);
@@ -49,15 +49,16 @@ int main()
 		done =0;
 		puts("enter the character:");
 		char c;
-		c = getchar();
-		getchar();
+		do{scanf("%c",&c);} while(c=='\n');
 		char token[100];
 		puts("enter the unique token (the character name)");
 		scanf("%s",token);
+		puts("Enter the design");
 		fprintf(font_c,"\td_alloc(%s,%s,'%c',",fontname,token,c);
 		for (int i=0;i<h;i++)
 		{
 			gets(s);
+			fputs(s,font_c);
 			if(!done){
 				fprintf(font_c,"%i,ARRAY({",(int)strlen(s)+1);
 				done =1;}
