@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #define FNAME_MAX 100
+#define input(...) scanf(__VA_ARGS__);		\
+		   getchar()
 int main()
 {
 	puts("Enter Font name (less than 100 character)");
 	char fontname[110];
-	scanf("%s",fontname);
+	input("%s",fontname);
 	FILE *font_h;
 	FILE *font_c;	
 	font_h = fopen(strcat(fontname,".h"),"w+");
@@ -38,10 +40,10 @@ int main()
 	fprintf(font_c, "int %s_init(void)\n{\n",fontname);
 	puts("Enter the number of valid character:");
 	int valid_n;
-	scanf("%i",&valid_n);
+	input("%i",&valid_n);
 	puts("Enter number of character height:");
 	int h;
-	scanf("%i",&h);
+	input("%i",&h);
 	fprintf(font_c,"\tfont_alloc(%s,%i,%i);",fontname,h,valid_n);
 	char s[100];
 	int done =0;
@@ -49,10 +51,10 @@ int main()
 		done =0;
 		puts("enter the character:");
 		char c;
-		do{scanf("%c",&c);} while(c=='\n');
+		input("%c",&c);
 		char token[100];
 		puts("enter the unique token (the character name)");
-		scanf("%s",token);
+		input("%s",token);
 		puts("Enter the design");
 		fprintf(font_c,"\td_alloc(%s,%s,'%c',",fontname,token,c);
 		for (int i=0;i<h;i++)
@@ -61,7 +63,8 @@ int main()
 			fputs(s,font_c);
 			if(!done){
 				fprintf(font_c,"%i,ARRAY({",(int)strlen(s)+1);
-				done =1;}
+				done =1;
+			}
 			fprintf(font_c,"\"%s\"",s);
 			if(i!=h-1) fputc(',',font_c);
 		}
