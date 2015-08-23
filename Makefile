@@ -1,10 +1,11 @@
 uninstall:
 	@echo Uninstalling library; 	\
 	rm /usr/lib/libaarts.so -f; 	\
-	rm /usr/include/core.h /usr/include/whimsy.h
+	cd /usr/include			\
+	rm whimsy.h core.h StarStrips.h -f
 install: lib
-	echo Installing library;	\
-	@cp include/*.h /usr/include/;	\
+	@echo Installing library;	\
+	cp include/*.h /usr/include/;	\
 	cp libaarts.so /usr/lib/
 lib:
 	@cd fonts;			\
