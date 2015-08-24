@@ -1,0 +1,4 @@
+1. optimising the d_alloc macro.
+2. adding image drawing functionality (abstacting it to font structure).
+3. tools to check that code follows the CodeStyle guideline.
+4. adding 100 font.
