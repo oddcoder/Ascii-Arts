@@ -18,13 +18,15 @@ How do I apply or revert a patch?
 Patches are applied using git version control system. Before applying a patch
 patch must be checked so that you know what should the patch do.
 
-git apply --stat mypatch.patch
+`git apply --stat mypatch.patch`
 
 This command does not apply any patch at all. It just gives you a chance to
 check what does the patch do. After you have checked that everything is fine
 it is time to apply patch
 
-git apply mypatch.patch
+`git apply mypatch.patch`
 
 note that applying patch does NOT commit the patch to the master branch 
-
+after checking that everything is fine with your patch you can 
+apply and commit it with the command 
+`git am mypatch.patch`
