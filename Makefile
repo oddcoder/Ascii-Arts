@@ -17,7 +17,7 @@ clean:
 	cd fonts;			\
 	rm *.o -f;			\
 	cd ../demo;			\
-	rm *-d -f;
+	rm *.d -f;
 demos:
 	@cd demo;			\
 	make whimsy
